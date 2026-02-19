@@ -1,0 +1,28 @@
+#adb cheat sheet(some imp commands used in testing )
+
+## check connected device
+- adb devices
+
+## Get Android Version
+- adb shell getprop ro.build.version.release
+
+## List installed packages
+- adb shell pm list packages
+
+## Install apk
+- adb install name.apk
+
+##uninstall apk 
+- adb uninstall package.name
+
+## force stop app
+- adb shell am force-stop package.name 
+
+## Reboot Device
+- adb reboot
+
+## Capture Logs
+- adb logcat
+
+## Capture only Errors
+- adb logcat *:E

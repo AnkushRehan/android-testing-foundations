@@ -1,0 +1,30 @@
+#how to setup android environment:
+
+##1.My system configuration:
+-intel i7 8-Gen 
+-16 GB RAM
+-1TB HHD WITH 256 GB SSD
+-2 GB NVIDIA GRAPHIC CARD
+
+##2.SDK installed
+-Android 14
+-Android 13
+-Android 12
+
+##3.Emulator configuration
+
+###EMULATOR 1:
+DEVICE- PIXEL 5
+AV - 13
+API LEVEL - 33
+RAM -2GB(2048)
+
+### EMULATOR 2:
+DEVICE- PIXEL 3
+AV - 12
+API LEVEL - 31
+RAM- 1GB(1024)
+
+##4. Issue faced
+- adb not found error
+- fixed by setting env varibale 

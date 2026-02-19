@@ -1,0 +1,19 @@
+#LOGCAT GUIDE:
+
+# what is logcat?
+- logcat is a command line tool that show system and application logs from an android device.
+
+# Why it is important?
+- helps detect the crashes
+- helps debug failures
+- used during automation failure analysis
+
+# start logcat
+- adb logcat
+
+# filter only errors 
+- adb logcat *:E
+
+# save logs to File
+- adb logcat -d> sample-crash-log.txt (file where we save our logs)
+
