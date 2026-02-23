@@ -1,0 +1,37 @@
+2.#DEEP LINK TESTING #
+
+ Q:deep link ?
+-to open app specifc screen direclty without manually nevigating .. doing with command 
+-ek app ka specific screen directly open krna without manually navigating 
+
+command -
+adb shell am start -a android.intent.action.VIEW -d "link of your specifc app screen"
+ex-
+https://www.playstation.com/en-za/games/god-of-war/
+working - add this link in data section and you can see the screen is automatically open  
+
+breakdown -
+am = activity manager 
+start = start new activity 
+-a = action
+android.intent.action.View = view/open
+-d = Data (url of specifc app screen )
+
+:It said that open that url /specifc screen without manully nevigation ..
+
+🔹 Test Performed Triggered Pinterest image URL using ADB command.
+🔹 Observation
+-App launched successfully
+-Specific image opened
+-No login required
+🔹 ConclusionPublic content can be accessed without authentication via deep link.
+
+-here we do test cases of both concept:
+
+🟢 Network Simulation
+Network Drop During Playback
+Network Restore After Drop
+
+🟣 Deep Link
+Valid Deep Link  during (Logged Out) in app  
+Invalid Deep Link Handling and check when you paste a invalid/expired deep link and then observe the error and ui response  
