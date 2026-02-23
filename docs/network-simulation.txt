@@ -1,0 +1,31 @@
+1.#NETWORK SIMULATION:
+
+##TURN OFF WIFI DUSRING API CALL:
+
+-Api call?
+whenever clint/user requets to server for data known as api call 
+
+so when we request(api call) to server for any data like youtube videos load ,etc then turn off the wifi
+and notice the app behaviour 
+
+commands -
+ 
+adb shell svc wifi enable 
+adb shell svc wifi disable
+
+breakdown :
+adb- device connected
+shell- command run on this device 
+svc=SYSTEM SERVICE CONTROL 
+
+we test youtube .with video playing and suddenly drop the wifi . so we saw in logcat tab .. after terminal logcat command .. bunch of errors due to network ..
+
+# OBSERVE THE UI BEHAVIOUR ::
+after drop the api call .. observe the ui behaviour 
+-like 
+ observe spinner ,
+is there any retry buttun raise ?
+does app freeze?
+is there any error ?
+
+this observation is imp for automation because during testing me ager network drop oh jaye to koi esa logic hona vhaaye jo network ko retry kr ske and proper wait time handlng bhi ho because somtimes automation app testing me network drop ho jata ha to test proper ni ho pata .. thats why retry logic is must ..
