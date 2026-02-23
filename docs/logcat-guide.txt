@@ -8,12 +8,78 @@
 - helps debug failures
 - used during automation failure analysis
 
-# start logcat
-- adb logcat
 
-# filter only errors 
-- adb logcat *:E
+- LOGGING TOOL ? 
+: its a tool to tack all activity running in a app
+: catch errors  
+:help in debugging
+:detect the reason of app crash  and by the help of this developer can solve the error 
 
-# save logs to File
-- adb logcat -d> sample-crash-log.txt (file where we save our logs)
+
+Q: HOW LOGCAT WORKS ?
+- The Android system and the application generate logs during app execution. Logcat collects these logs and displays them on the screen in real time as messages.
+
+
+## FIND CRASH ::
+-cmd##
+adb logcat -c # clear previous logs 
+
+adb logcat # start logs when app is runnig and do some activity  if error crash comes then it is red in color
+
+ 
+adb shell pidof pkg_name of your app/runnig app  
+-helps to find process id of currently running app 
+-filtering using process id 
+
+PID? JAB BHI KOI APP RUN HOTI HA ANDROID ME TON SYSTEM USE EK UNIQUE NUMBER DETA HA USI KO PID BOLTE HA .. HELP TO FIND LOGS OF SPECIFIC RUNNIG APP  normally logcat sb apps ke logs dikhata ha but pid ki help se ham specific runnig app ke logs dekte ha .. also term as filter 
+
+adb logcat pid= current runnig process id ## display current running app logs only 
+
+HOW CRASH LOOKS LIKE :
+FATAL EXCEPTION: main  # mean serious runtime error in main tread .. define ki app run ni ho skti because main thread pr error hua ha 
+Process: com.google.android.youtube #confirm krta ha ki crash isi app ka hua ha 
+java.lang.NullPointerException # what type of crash ? defines what is the mistake has to be done 
+at com.google.android.youtube.SomeClass.method(SomeClass.java:45) #define the exect mistake location
+..mean ki file = SomeClass line no 45 pr crash hua ha .. mean yahi error ha ... 45 is the line no 
+
+
+terms:
+fatal= serious , exception= runtime error = serious runtime error 
+main= error in main thread thats why app is not runnig 
+process-line=confirms crash detect only of this app or else ? 
+exception type= define what type of crash .. 
+location (SomeClass.java:45 ) = define exact location of mistake to be done .
+-file =SomeClass.java
+-line no =45 
+
+Stack Trace
+- file kaha se kaha tk giri(call chain ) .. 
+ex
+ java.lang.NullPointerException
+at com.example.app.MainActivity.onCreate(MainActivity.java:20) 
+Crash type → NullPointerException
+File → MainActivity.java
+Line → 20
+:: Tu ab identify kar sakta hai kaunsi line pe issue hai
+
+
+
+ERROR VS CRASH ?
+ERROR (E)= only error signed as E .. only error but app is running ..error can be network error 
+CRASH= app stop working , logcat shows FATAL EXCEPTION 
+
+STEPS TO FIND CRASH :
+• first clear previous logs if opend 
+• first find your app package name 
+• after this , open app and write commands 
+• first find process id of that perticular running app  using adb shell pidof pkg_name 
+• after this copy that pid and do filter using adb logcat pid=id 
+• now only that app logs display .
+• if there is an error in red color ..like FATAL ERROR 
+• then you successfully find the crash 
+• now carefully read the error on which thread ..ex main or else 
+• read the process line .. 
+• now stack tracing ..  read.. which  file/class .. exception type .. line no (location) generate error 
+
+
 
