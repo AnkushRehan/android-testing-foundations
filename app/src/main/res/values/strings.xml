@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">composePractice</string>
+    <string name="enter_details">enter details</string>
+    <string name="sign_up_screen">sign up screen</string>
+    <string name="enter_user_name">enter user name</string>
+    <string name="enter_user_password">enter user password</string>
+    <string name="login_page">Login Page</string>
+</resources>
