@@ -1,28 +1,52 @@
-#adb cheat sheet(some imp commands used in testing )
+#Adb imp commands::
+:adb devices  (device visibility command )
+ if it shows - device is attachd then path of adb is set perfectly but if shows no recognised then set adb path correctly 
 
-## check connected device
-- adb devices
+: adb install appname.apk    
+..used to install apk on your device
 
-## Get Android Version
-- adb shell getprop ro.build.version.release
+:adb install -r appname.apk   
+ used to reinstall the app 
 
-## List installed packages
-- adb shell pm list packages
+:adb uninstall app_pkg_name 
+used to unintsall the  app from device
 
-## Install apk
-- adb install name.apk
+:adb shell pm list packages 
+ display all packages of  apps in your device.if you didnt find specific app package then do ctrl+f and 
+write  com.appname 
 
-##uninstall apk 
-- adb uninstall package.name
+:adb shell pm clear (pkg name of specifc app) ....used to clear app data 
 
-## force stop app
-- adb shell am force-stop package.name 
+:adb shell am force-stop pkg name ...used to stop app from background
 
-## Reboot Device
-- adb reboot
+:adb shell monkey -p pkg_name -c android.intent.category.LAUNCHER 1
+used to open app same like user open the app 
 
-## Capture Logs
-- adb logcat
 
-## Capture only Errors
-- adb logcat *:E
+:adb logcat ....- start logs and ctrl+c for stop logcats 
+
+:adb logcat -c ... to clear old logs .. purane logs ko delete kr deta ha taki ham new se start kr ske 
+
+:adb logcat *:E..to filter the error 
+:adb logcat -d> file.txt (here is the file where your logs  saved)
+
+
+:adb logcat | findstr pkg_name 
+used for filter the logs 
+
+use:: 
+🔎 Ye Actually Kya Karta Hai?1️⃣ adb logcat
+
+→ Device ke saare system logs stream karta hai (har app ke)
+2️⃣ | (pipe)
+
+→ Output ko next command ko bhejta hai
+3️⃣ findstr com.picsart.studio
+
+→ Sirf un lines ko show karega jisme ye text ho
+
+-NETWORK TOGGLE COMMANDS :
+:adb shell svc bluetooth enable ... enable the bluetooth 
+:abb shell svc bluetooth disable...disable the bluetooth 
+:adb shell svc wifi enable/disable
+:adb shell scv data enable/disable ..
